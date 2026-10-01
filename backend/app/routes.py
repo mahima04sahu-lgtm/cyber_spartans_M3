@@ -462,6 +462,9 @@ def stream_ingestion_progress():
 
     def run_worker():
         try:
+            from backend.app.db import close_db, init_db
+            close_db()
+
             csv_path = "data/raw/transactions.csv"
             if not os.path.exists(csv_path):
                 alt = "C:/Users/shali/Downloads/VoidHacks8_MuleAccount_2M_Transactions.csv"
@@ -469,8 +472,16 @@ def stream_ingestion_progress():
                     csv_path = alt
 
             run_ingestion_pipeline(csv_path, progress_callback=progress_callback)
+
+            # Re-initialize read-only database connection after ingestion completes
+            init_db()
         except Exception as e:
             q.put({"stage": "error", "percent": 0, "message": str(e)})
+            try:
+                from backend.app.db import init_db
+                init_db()
+            except Exception:
+                pass
 
     threading.Thread(target=run_worker, daemon=True).start()
 
