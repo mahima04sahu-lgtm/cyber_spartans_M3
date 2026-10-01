@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: abhedya-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+    environment:
+      - ABHEDYA_DB_PATH=data/db/abhedya.duckdb
+      - OLLAMA_HOST=http://ollama:11434
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: abhedya-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: abhedya-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    profiles:
+      - llm
+
+volumes:
+  ollama_data:

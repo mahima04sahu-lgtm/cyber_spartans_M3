@@ -1,0 +1,20 @@
+# Core Data & Performance Engine
+duckdb>=0.9.0
+parquet>=1.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+
+# API & Web Framework
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+pydantic>=2.0
+jinja2>=3.1.2
+weasyprint>=59.0
+
+# Utilities & LLM integration
+requests>=2.31.0
+python-multipart>=0.0.6
+
+# Testing
+pytest>=7.3.0

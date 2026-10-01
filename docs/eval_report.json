@@ -1,0 +1,422 @@
+{
+  "timestamp": "2026-10-01 21:58:35",
+  "total_accounts": 25000,
+  "num_actual_mules": 1500,
+  "num_actual_normals": 23500,
+  "threshold_metrics": {
+    "40": {
+      "threshold": 40,
+      "tp": 978,
+      "fp": 4660,
+      "tn": 18840,
+      "fn": 522,
+      "precision": 0.1735,
+      "recall": 0.652,
+      "f1_score": 0.2741,
+      "false_positive_rate": 0.1983
+    },
+    "50": {
+      "threshold": 50,
+      "tp": 648,
+      "fp": 0,
+      "tn": 23500,
+      "fn": 852,
+      "precision": 1.0,
+      "recall": 0.432,
+      "f1_score": 0.6034,
+      "false_positive_rate": 0.0
+    },
+    "60": {
+      "threshold": 60,
+      "tp": 572,
+      "fp": 0,
+      "tn": 23500,
+      "fn": 928,
+      "precision": 1.0,
+      "recall": 0.3813,
+      "f1_score": 0.5521,
+      "false_positive_rate": 0.0
+    },
+    "70": {
+      "threshold": 70,
+      "tp": 342,
+      "fp": 0,
+      "tn": 23500,
+      "fn": 1158,
+      "precision": 1.0,
+      "recall": 0.228,
+      "f1_score": 0.3713,
+      "false_positive_rate": 0.0
+    },
+    "80": {
+      "threshold": 80,
+      "tp": 92,
+      "fp": 0,
+      "tn": 23500,
+      "fn": 1408,
+      "precision": 1.0,
+      "recall": 0.0613,
+      "f1_score": 0.1155,
+      "false_positive_rate": 0.0
+    }
+  },
+  "layer_metrics": {
+    "L1": {
+      "total_count": 300,
+      "recalled_count": 5,
+      "layer_recall": 0.0167,
+      "exact_layer_match_count": 0,
+      "layer_accuracy": 0.0
+    },
+    "L2": {
+      "total_count": 600,
+      "recalled_count": 588,
+      "layer_recall": 0.98,
+      "exact_layer_match_count": 41,
+      "layer_accuracy": 0.0683
+    },
+    "L3": {
+      "total_count": 600,
+      "recalled_count": 55,
+      "layer_recall": 0.0917,
+      "exact_layer_match_count": 269,
+      "layer_accuracy": 0.4483
+    }
+  },
+  "top_false_positives_count": 0,
+  "top_false_negatives_count": 30,
+  "top_30_false_positives": [],
+  "top_30_false_negatives": [
+    {
+      "account": "910000018227",
+      "actual_layer": "L3",
+      "risk_score": 5.3,
+      "top_reasons": "WHITELISTED_LEGIT_HUB, FOREIGN_IP_40%, HEADLESS_DEVICE_40%",
+      "pass_through_ratio": 0.19003011356343277,
+      "median_dwell_seconds": 999999.0,
+      "foreign_ip_share": 0.4055299539170507,
+      "headless_device_share": 0.4055299539170507,
+      "burstiness": 9
+    },
+    {
+      "account": "910000001669",
+      "actual_layer": "L3",
+      "risk_score": 5.4,
+      "top_reasons": "WHITELISTED_LEGIT_HUB, FOREIGN_IP_40%, HEADLESS_DEVICE_40%",
+      "pass_through_ratio": 0.25818182295397824,
+      "median_dwell_seconds": 999999.0,
+      "foreign_ip_share": 0.40930232558139534,
+      "headless_device_share": 0.40930232558139534,
+      "burstiness": 9
+    },
+    {
+      "account": "910000007582",
+      "actual_layer": "L3",
+      "risk_score": 5.6,
+      "top_reasons": "WHITELISTED_LEGIT_HUB, FOREIGN_IP_42%, HEADLESS_DEVICE_42%",
+      "pass_through_ratio": 0.3304129646116926,
+      "median_dwell_seconds": 999999.0,
+      "foreign_ip_share": 0.42857142857142855,
+      "headless_device_share": 0.42857142857142855,
+      "burstiness": 9
+    },
+    {
+      "account": "910000009645",
+      "actual_layer": "L3",
+      "risk_score": 5.8,
+      "top_reasons": "WHITELISTED_LEGIT_HUB, FOREIGN_IP_44%, HEADLESS_DEVICE_44%",
+      "pass_through_ratio": 0.24011779881859185,
+      "median_dwell_seconds": 999999.0,
+      "foreign_ip_share": 0.4482758620689655,
+      "headless_device_share": 0.4482758620689655,
+      "burstiness": 8
+    },
+    {
+      "account": "910000022528",
+      "actual_layer": "L3",
+      "risk_score": 6.7,
+      "top_reasons": "WHITELISTED_LEGIT_HUB, FOREIGN_IP_52%, HEADLESS_DEVICE_52%",
+      "pass_through_ratio": 0.12319399090281877,
+      "median_dwell_seconds": 999999.0,
+      "foreign_ip_share": 0.525096525096525,
+      "headless_device_share": 0.525096525096525,
+      "burstiness": 13
+    },
+    {
+      "account": "910000021815",
+      "actual_layer": "L3",
+      "risk_score": 10.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, FAN_IN_79_SENDERS",
+      "pass_through_ratio": 0.4343881541458482,
+      "median_dwell_seconds": 454.5,
+      "foreign_ip_share": 0.195,
+      "headless_device_share": 0.195,
+      "burstiness": 5
+    },
+    {
+      "account": "910000000128",
+      "actual_layer": "L1",
+      "risk_score": 10.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, FAN_IN_1895_SENDERS",
+      "pass_through_ratio": 0.2362696589463055,
+      "median_dwell_seconds": 518.0,
+      "foreign_ip_share": 0.0,
+      "headless_device_share": 0.0,
+      "burstiness": 7
+    },
+    {
+      "account": "910000000076",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_15_TXNS_10MIN, FAN_IN_1892_SENDERS",
+      "pass_through_ratio": 0.10406347590794103,
+      "median_dwell_seconds": 444.0,
+      "foreign_ip_share": 0.05321100917431193,
+      "headless_device_share": 0.05321100917431193,
+      "burstiness": 15
+    },
+    {
+      "account": "910000000053",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_8_TXNS_10MIN, FAN_IN_1900_SENDERS",
+      "pass_through_ratio": 0.038931835158200874,
+      "median_dwell_seconds": 511.5,
+      "foreign_ip_share": 0.04522144522144522,
+      "headless_device_share": 0.04522144522144522,
+      "burstiness": 8
+    },
+    {
+      "account": "910000000200",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_11_TXNS_10MIN, FAN_IN_1898_SENDERS",
+      "pass_through_ratio": 0.049813970944823295,
+      "median_dwell_seconds": 487.5,
+      "foreign_ip_share": 0.06100917431192661,
+      "headless_device_share": 0.06100917431192661,
+      "burstiness": 11
+    },
+    {
+      "account": "910000000100",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_9_TXNS_10MIN, FAN_IN_1827_SENDERS",
+      "pass_through_ratio": 0.1014363969923837,
+      "median_dwell_seconds": 462.0,
+      "foreign_ip_share": 0.04933586337760911,
+      "headless_device_share": 0.04933586337760911,
+      "burstiness": 9
+    },
+    {
+      "account": "910000000120",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_15_TXNS_10MIN, FAN_IN_1960_SENDERS",
+      "pass_through_ratio": 0.13664105817409744,
+      "median_dwell_seconds": 487.0,
+      "foreign_ip_share": 0.047787610619469026,
+      "headless_device_share": 0.047787610619469026,
+      "burstiness": 15
+    },
+    {
+      "account": "910000000148",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_11_TXNS_10MIN, FAN_IN_1854_SENDERS",
+      "pass_through_ratio": 0.11110877174717076,
+      "median_dwell_seconds": 479.5,
+      "foreign_ip_share": 0.054800936768149885,
+      "headless_device_share": 0.054800936768149885,
+      "burstiness": 11
+    },
+    {
+      "account": "910000000168",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_12_TXNS_10MIN, FAN_IN_1977_SENDERS",
+      "pass_through_ratio": 0.017575187404622758,
+      "median_dwell_seconds": 419.0,
+      "foreign_ip_share": 0.04783393501805054,
+      "headless_device_share": 0.04783393501805054,
+      "burstiness": 12
+    },
+    {
+      "account": "910000000035",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_9_TXNS_10MIN, FAN_IN_1854_SENDERS",
+      "pass_through_ratio": 0.027815429912607905,
+      "median_dwell_seconds": 360.5,
+      "foreign_ip_share": 0.052955082742316785,
+      "headless_device_share": 0.052955082742316785,
+      "burstiness": 9
+    },
+    {
+      "account": "910000000092",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_13_TXNS_10MIN, FAN_IN_1915_SENDERS",
+      "pass_through_ratio": 0.030575547171276952,
+      "median_dwell_seconds": 457.0,
+      "foreign_ip_share": 0.0460679385760819,
+      "headless_device_share": 0.0460679385760819,
+      "burstiness": 13
+    },
+    {
+      "account": "910000000181",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_16_TXNS_10MIN, FAN_IN_1882_SENDERS",
+      "pass_through_ratio": 0.13157755211136257,
+      "median_dwell_seconds": 428.0,
+      "foreign_ip_share": 0.04668192219679634,
+      "headless_device_share": 0.04668192219679634,
+      "burstiness": 16
+    },
+    {
+      "account": "910000000135",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_17_TXNS_10MIN, FAN_IN_1908_SENDERS",
+      "pass_through_ratio": 0.15683840625288653,
+      "median_dwell_seconds": 524.0,
+      "foreign_ip_share": 0.06607538802660753,
+      "headless_device_share": 0.06607538802660753,
+      "burstiness": 17
+    },
+    {
+      "account": "910000000195",
+      "actual_layer": "L2",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_13_TXNS_10MIN, FAN_IN_1890_SENDERS",
+      "pass_through_ratio": 0.11355360628522675,
+      "median_dwell_seconds": 492.0,
+      "foreign_ip_share": 0.04180064308681672,
+      "headless_device_share": 0.04180064308681672,
+      "burstiness": 13
+    },
+    {
+      "account": "910000000147",
+      "actual_layer": "L3",
+      "risk_score": 15.0,
+      "top_reasons": "TEMPORAL_CYCLE_DETECTED, HIGH_BURSTINESS_9_TXNS_10MIN, FAN_IN_1942_SENDERS",
+      "pass_through_ratio": 0.03761428572081112,
+      "median_dwell_seconds": 456.0,
+      "foreign_ip_share": 0.05628095452498874,
+      "headless_device_share": 0.05628095452498874,
+      "burstiness": 9
+    },
+    {
+      "account": "910000004286",
+      "actual_layer": "L3",
+      "risk_score": 17.3,
+      "top_reasons": "FOREIGN_IP_23%, HEADLESS_DEVICE_23%, CRYPTO_WALLET_NARRATION_23%",
+      "pass_through_ratio": 0.3922537433864905,
+      "median_dwell_seconds": 624.0,
+      "foreign_ip_share": 0.2303370786516854,
+      "headless_device_share": 0.2303370786516854,
+      "burstiness": 6
+    },
+    {
+      "account": "910000022863",
+      "actual_layer": "L3",
+      "risk_score": 22.0,
+      "top_reasons": "FOREIGN_IP_29%, HEADLESS_DEVICE_29%, CRYPTO_WALLET_NARRATION_29%",
+      "pass_through_ratio": 0.44586978505624,
+      "median_dwell_seconds": 453.0,
+      "foreign_ip_share": 0.2927927927927928,
+      "headless_device_share": 0.2927927927927928,
+      "burstiness": 5
+    },
+    {
+      "account": "910000021333",
+      "actual_layer": "L3",
+      "risk_score": 22.4,
+      "top_reasons": "FOREIGN_IP_29%, HEADLESS_DEVICE_29%, CRYPTO_WALLET_NARRATION_29%",
+      "pass_through_ratio": 0.14860774859702228,
+      "median_dwell_seconds": 177.5,
+      "foreign_ip_share": 0.29842931937172773,
+      "headless_device_share": 0.29842931937172773,
+      "burstiness": 7
+    },
+    {
+      "account": "910000008455",
+      "actual_layer": "L3",
+      "risk_score": 22.5,
+      "top_reasons": "FOREIGN_IP_30%, HEADLESS_DEVICE_30%, CRYPTO_WALLET_NARRATION_30%",
+      "pass_through_ratio": 0.2934335726790918,
+      "median_dwell_seconds": 739.5,
+      "foreign_ip_share": 0.3,
+      "headless_device_share": 0.3,
+      "burstiness": 7
+    },
+    {
+      "account": "910000012061",
+      "actual_layer": "L3",
+      "risk_score": 23.4,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.3982366264121035,
+      "median_dwell_seconds": 487.0,
+      "foreign_ip_share": 0.31155778894472363,
+      "headless_device_share": 0.31155778894472363,
+      "burstiness": 6
+    },
+    {
+      "account": "910000011468",
+      "actual_layer": "L3",
+      "risk_score": 23.5,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.39494755314072644,
+      "median_dwell_seconds": 415.5,
+      "foreign_ip_share": 0.3132530120481928,
+      "headless_device_share": 0.3132530120481928,
+      "burstiness": 7
+    },
+    {
+      "account": "910000004337",
+      "actual_layer": "L3",
+      "risk_score": 23.7,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.2314591572456651,
+      "median_dwell_seconds": 302.5,
+      "foreign_ip_share": 0.3155080213903743,
+      "headless_device_share": 0.3155080213903743,
+      "burstiness": 7
+    },
+    {
+      "account": "910000005803",
+      "actual_layer": "L3",
+      "risk_score": 23.7,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.4913486575670222,
+      "median_dwell_seconds": 815.0,
+      "foreign_ip_share": 0.3160377358490566,
+      "headless_device_share": 0.3160377358490566,
+      "burstiness": 7
+    },
+    {
+      "account": "910000020854",
+      "actual_layer": "L3",
+      "risk_score": 23.8,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.3557844905807261,
+      "median_dwell_seconds": 568.0,
+      "foreign_ip_share": 0.3167420814479638,
+      "headless_device_share": 0.3167420814479638,
+      "burstiness": 7
+    },
+    {
+      "account": "910000009768",
+      "actual_layer": "L3",
+      "risk_score": 23.8,
+      "top_reasons": "FOREIGN_IP_31%, HEADLESS_DEVICE_31%, CRYPTO_WALLET_NARRATION_31%",
+      "pass_through_ratio": 0.6298009153662582,
+      "median_dwell_seconds": 413.0,
+      "foreign_ip_share": 0.31759656652360513,
+      "headless_device_share": 0.31759656652360513,
+      "burstiness": 7
+    }
+  ],
+  "evaluation_duration_seconds": 0.26
+}

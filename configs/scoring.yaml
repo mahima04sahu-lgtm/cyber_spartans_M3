@@ -1,0 +1,36 @@
+layer_rules:
+  L1:
+    max_median_dwell_seconds: 900
+    min_in_count: 3
+    min_pass_through: 0.7
+  L2:
+    min_fanout: 2
+    min_out_count: 3
+    min_pass_through: 0.7
+  L3:
+    has_terminal_signals: true
+risk_bands:
+  critical: 80.0
+  high: 60.0
+  low: 0.0
+  medium: 40.0
+thresholds:
+  burstiness_high: 8
+  dwell_time_max_seconds: 900
+  fanout_max: 7
+  fanout_min: 3
+  pass_through_min: 0.8
+weights:
+  crypto_wallet_narration: 10.0
+  cycle_detected: 10.0
+  foreign_ip: 20.0
+  headless_device: 20.0
+  high_burstiness: 5.0
+  pass_through: 15.0
+  rapid_forward: 20.0
+  structuring: 10.0
+whitelist_hubs:
+  discount_factor: 0.15
+  max_pass_through: 0.35
+  min_dwell_seconds: 3600
+  min_in_degree: 30

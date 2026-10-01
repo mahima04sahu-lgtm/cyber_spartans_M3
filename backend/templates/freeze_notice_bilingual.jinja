@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Freeze Notice (Bilingual) - {{ bank_name }}</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 15mm 15mm 20mm 15mm;
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: Arial, sans-serif;
+        font-size: 8pt;
+        color: #555555;
+      }
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.4;
+      color: #111111;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .header-table {
+      width: 100%;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .header-title {
+      font-size: 12pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .header-subtitle {
+      font-size: 9.5pt;
+      text-align: center;
+      font-weight: bold;
+      color: #222222;
+      margin-top: 3px;
+    }
+    .fillable-grid {
+      width: 100%;
+      margin-bottom: 12px;
+      font-size: 9pt;
+    }
+    .fillable-grid td {
+      padding: 3px 0;
+      vertical-align: top;
+    }
+    .fillable-line {
+      border-bottom: 1px dotted #444444;
+      display: inline-block;
+      min-width: 130px;
+    }
+    .recipient-box {
+      margin-bottom: 12px;
+      font-size: 9.5pt;
+      font-weight: bold;
+    }
+    .legal-body {
+      text-align: justify;
+      margin-bottom: 10px;
+      font-size: 9pt;
+    }
+    .legal-body p {
+      margin: 5px 0;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 8.5pt;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #333333;
+      padding: 4px 5px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+      font-size: 8pt;
+    }
+    .checklist {
+      margin: 8px 0;
+      padding-left: 18px;
+      font-size: 8.5pt;
+    }
+    .checklist li {
+      margin-bottom: 3px;
+    }
+    .footer-integrity {
+      margin-top: 15px;
+      padding-top: 6px;
+      border-top: 1px solid #888888;
+      font-size: 7.5pt;
+      font-family: "Courier New", Courier, monospace;
+      color: #333333;
+    }
+    .sig-table {
+      width: 100%;
+      margin-top: 30px;
+      font-size: 9pt;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <table class="header-table">
+    <tr>
+      <td class="header-title">पुलिस आयुक्त कार्यालय इंदौर — साइबर अपराध शाखा<br>POLICE COMMISSIONERATE INDORE — CYBER CRIME CELL</td>
+    </tr>
+    <tr>
+      <td class="header-subtitle">
+        धारा 94 बीएनएसएस, 2023 (धारा 91 सीआरपीसी) व धारा 106 बीएनएसएस, 2023 (धारा 102 सीआरपीसी) के तहत नोटिस<br>
+        NOTICE U/S 94 BNSS, 2023 (SEC 91 CrPC) & SEC 106 BNSS, 2023 (SEC 102 CrPC)
+      </td>
+    </tr>
+  </table>
+
+  <!-- FILLABLE FORM FIELDS -->
+  <table class="fillable-grid">
+    <tr>
+      <td style="width: 50%;"><strong>नोटिस सं / Notice No:</strong> <span class="fillable-line">{{ notice_no or "________________________" }}</span></td>
+      <td style="width: 50%;"><strong>दिनांक / Date:</strong> <span class="fillable-line">{{ date or "________________________" }}</span></td>
+    </tr>
+    <tr>
+      <td><strong>अपराध सं / Crime No:</strong> <span class="fillable-line">{{ crime_no or "________________________" }}</span></td>
+      <td><strong>थाना / Police Station:</strong> <span class="fillable-line">{{ police_station or "________________________" }}</span></td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>जांच अधिकारी / IO:</strong> <span class="fillable-line" style="min-width: 320px;">{{ officer_name or "____________________________________" }}</span></td>
+    </tr>
+  </table>
+
+  <!-- RECIPIENT -->
+  <div class="recipient-box">
+    प्रति / TO,<br>
+    नोडल अधिकारी / बैंक प्रबंधक / THE NODAL OFFICER / MANAGER,<br>
+    <strong>{{ bank_name }}</strong><br>
+    <span style="font-weight: normal; font-style: italic;">पता / Address: ____________________________________________________________________</span><br>
+    <span style="font-weight: normal; font-style: italic;">ईमेल / Email: ____________________________________________________________________</span>
+  </div>
+
+  <!-- LEGAL BODY TEXT -->
+  <div class="legal-body">
+    <p><strong>विषय: साइबर अपराध राशि डेबिट फ्रीज एवं दस्तावेज / डेटा प्रस्तुतिकरण हेतु नोटिस।<br>SUBJECT: URGENT DEBIT FREEZE & REQUISITION FOR PRODUCTION OF DOCUMENTS U/S 94 & 106 BNSS, 2023.</strong></p>
+    
+    <p>साइबर अपराध शिकायत (पीड़ित खाता: <strong>{{ victim_account }}</strong>, कुल धोखाधड़ी राशि: <strong>₹{{ total_siphoned }}</strong>) की विवेचना दौरान आपके बैंक के निम्नलिखित खातों में धोखाधड़ी की राशि स्थानांतरित होना पाया गया है। अतः <strong>धारा 106 बीएनएसएस, 2023 (धारा 102 सीआरपीसी)</strong> के तहत उक्त खातों को <strong>तत्काल प्रभाव से डेबिट फ्रीज (DEBIT FREEZE)</strong> करने का निर्देश दिया जाता है।</p>
+  </div>
+
+  <!-- ACCOUNTS TO BE FROZEN TABLE -->
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>क्र. / S.No</th>
+        <th>खाता संख्या / Account No</th>
+        <th>आईएफएससी / IFSC</th>
+        <th>खाताधारक का नाम / Account Holder</th>
+        <th>लेनदेन आईडी / Txn IDs</th>
+        <th>समय / Timestamp</th>
+        <th>विवादित राशि / Amount</th>
+        <th>फ्रीज हेतु शेष राशि / Freeze Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for acc in accounts %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td><strong>{{ acc.account }}</strong></td>
+        <td>{{ acc.ifsc }}</td>
+        <td>{{ acc.account_holder or "As per bank records" }}</td>
+        <td>{{ acc.disputed_txns }}</td>
+        <td>{{ acc.timestamp }}</td>
+        <td>₹{{ acc.disputed_amount }}</td>
+        <td><strong>₹{{ acc.residual_balance }}</strong></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- REQUISITION CHECKLIST -->
+  <div class="legal-body">
+    <p><strong>धारा 94 बीएनएसएस (धारा 91 सीआरपीसी)</strong> के तहत निम्नलिखित दस्तावेज 48 घंटे के भीतर उपलब्ध कराएं / Provide following documents within 48 hours:</p>
+    <ol class="checklist">
+      <li><strong>डेबिट फ्रीज पुष्टि / Debit Freeze Confirmation:</strong> खातों के फ्रीज होने एवं वर्तमान बैलेंस की पुष्टि।</li>
+      <li><strong>केवाईसी एवं खाता फॉर्म / KYC & Account Form:</strong> खाता खोलने का फॉर्म, आधार, पैन, फोटो एवं पंजीकृत मोबाइल नंबर की प्रमाणित प्रति।</li>
+      <li><strong>बैंक विवरण / Bank Statement:</strong> विषयांकित खातों का <strong>{{ start_date or "First Transaction" }}</strong> से अद्यतन विवरण।</li>
+      <li><strong>तकनीकी लॉग / Telemetry Logs:</strong> इंटरनेट/मोबाइल बैंकिंग लॉगिन का आईपी एड्रेस, जियो-लोकेशन एवं डिवाइस लॉग।</li>
+      <li><strong>सीसीटीवी फुटेज / CCTV Footage:</strong> एटीएम से नकद निकासी संबंधी सीसीटीवी फुटेज।</li>
+    </ol>
+  </div>
+
+  <!-- SIGNATURE TABLE -->
+  <table class="sig-table">
+    <tr>
+      <td style="width: 50%;">
+        <strong>स्थान / Place:</strong> इंदौर (म.प्र.)<br>
+        <strong>दिनांक / Date:</strong> __________________
+      </td>
+      <td style="width: 50%; text-align: right;">
+        <strong>जांच अधिकारी हस्ताक्षर व सील / IO Signature & Seal</strong><br><br><br>
+        (नाम व पद: _______________________)<br>
+        साइबर अपराध शाखा, इंदौर पुलिस
+      </td>
+    </tr>
+  </table>
+
+  <!-- EVIDENCE INTEGRITY FOOTER -->
+  <div class="footer-integrity">
+    EVIDENCE INTEGRITY HASH (SHA-256): {{ evidence_pack_hash }}<br>
+    SOURCE DATASET HASH (SHA-256): {{ dataset_hash }}<br>
+    GENERATED AT: {{ generated_at }} | ENGINE: ABHEDYA-CHAKRA INDORE POLICE<br>
+    CERTIFICATE UNDER SEC 63 BHARATIYA SAKSHYA ADHINIYAM, 2023 (BSA): [ATTACHED / VERIFIED DIGITAL HASH]
+  </div>
+
+</body>
+</html>

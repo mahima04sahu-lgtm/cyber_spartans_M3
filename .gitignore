@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+node_modules/
+dist/
+build/
+
+# Data directories (large files ignored in git)
+data/raw/transactions.csv
+data/parquet/*.parquet
+data/db/*.duckdb
