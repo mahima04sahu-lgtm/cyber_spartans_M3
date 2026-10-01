@@ -92,6 +92,14 @@ def health_check():
 # Include API router
 app.include_router(router)
 
+# Mount frontend build as static files if frontend/dist exists for 100% offline single-server deployment
+import os
+from fastapi.staticfiles import StaticFiles
+
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="static")
+
 
 if __name__ == "__main__":
     import uvicorn
