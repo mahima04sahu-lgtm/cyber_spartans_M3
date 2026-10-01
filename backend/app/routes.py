@@ -404,7 +404,8 @@ def get_system_stats():
     ts_row = con.execute(
         "SELECT strftime(MIN(ts), '%Y-%m-%d %H:%M:%S'), strftime(MAX(ts), '%Y-%m-%d %H:%M:%S') FROM txn;"
     ).fetchone()
-    min_ts, max_ts = ts_row if ts_row else (None, None)
+    min_ts = ts_row[0] if ts_row and len(ts_row) > 0 else None
+    max_ts = ts_row[1] if ts_row and len(ts_row) > 1 else None
     
     benchmark_rows = []
     try:
