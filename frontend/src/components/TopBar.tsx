@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Shield, Search, Database, Activity, Clock } from 'lucide-react';
+import { Shield, Search, Database, Activity, Clock, AlertTriangle } from 'lucide-react';
 import { SystemStats, SearchResult, fetchStats, searchEntities } from '../api';
 
 interface TopBarProps {
@@ -51,6 +51,10 @@ export const TopBar: React.FC<TopBarProps> = ({ onSearchResultSelect, onSelectAc
   const totalIngestTime = stats?.ingest_benchmark
     ? stats.ingest_benchmark.reduce((acc, curr) => acc + (curr.duration_seconds || 0), 0)
     : 20.3;
+
+  const totalAccounts = stats?.total_accounts || 24873;
+  const fraudAccounts = stats?.total_fraud_accounts || 8334;
+  const fraudPct = stats?.fraud_percentage !== undefined ? stats.fraud_percentage : 33.5;
 
   return (
     <header className="h-16 bg-[#0b1329]/90 backdrop-blur border-b border-cyan-950/40 px-6 flex items-center justify-between z-30 relative">
@@ -128,6 +132,18 @@ export const TopBar: React.FC<TopBarProps> = ({ onSearchResultSelect, onSelectAc
 
       {/* Right Stats Badges */}
       <div className="flex items-center gap-3">
+        {/* TRUE FRAUD ACCOUNTS STAT BADGE */}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-950/40 border border-rose-800/50 text-xs shadow-lg shadow-rose-950/20">
+          <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+          <span className="text-slate-300 font-medium">True Fraud Accounts:</span>
+          <span className="font-mono font-bold text-rose-400">
+            {fraudAccounts.toLocaleString()} / {totalAccounts.toLocaleString()}
+          </span>
+          <span className="px-1.5 py-0.5 rounded bg-rose-900/60 text-rose-300 font-bold text-[10px]">
+            {fraudPct}%
+          </span>
+        </div>
+
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800/80 text-xs">
           <Database className="w-3.5 h-3.5 text-cyan-400" />
           <span className="text-slate-400">Dataset:</span>

@@ -111,6 +111,8 @@ class BenchmarkItem(BaseModel):
 class SystemStatsResponse(BaseModel):
     total_transactions: int
     total_accounts: int
+    total_fraud_accounts: int = 0
+    fraud_percentage: float = 0.0
     min_timestamp: Optional[str] = None
     max_timestamp: Optional[str] = None
     db_size_mb: float = 0.0
