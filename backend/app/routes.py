@@ -188,23 +188,23 @@ def get_account_transactions(
     
     txns = [
         TransactionItem(
-            txn_id=r[0],
-            sender_acc=r[1],
-            receiver_acc=r[2],
-            sender_bank=r[3],
-            receiver_bank=r[4],
-            amount=round(float(r[5]), 2),
-            ts=r[6],
-            payment_mode=r[7],
-            narration=r[8],
-            narration_category=r[9],
-            ip_address=r[10],
-            ip_foreign=bool(r[11]),
-            device_type=r[12],
-            device_headless=bool(r[13]),
-            near_threshold=bool(r[14]),
+            txn_id=r[0] if len(r) > 0 else "N/A",
+            sender_acc=r[1] if len(r) > 1 else "UNKNOWN",
+            receiver_acc=r[2] if len(r) > 2 else "UNKNOWN",
+            sender_bank=r[3] if len(r) > 3 else "Unknown Bank",
+            receiver_bank=r[4] if len(r) > 4 else "Unknown Bank",
+            amount=round(float(r[5]), 2) if len(r) > 5 and r[5] is not None else 0.0,
+            ts=r[6] if len(r) > 6 else "",
+            payment_mode=r[7] if len(r) > 7 else "UNKNOWN",
+            narration=r[8] if len(r) > 8 else "",
+            narration_category=r[9] if len(r) > 9 else "other",
+            ip_address=r[10] if len(r) > 10 else "",
+            ip_foreign=bool(r[11]) if len(r) > 11 and r[11] is not None else False,
+            device_type=r[12] if len(r) > 12 else "",
+            device_headless=bool(r[13]) if len(r) > 13 and r[13] is not None else False,
+            near_threshold=bool(r[14]) if len(r) > 14 and r[14] is not None else False,
         )
-        for r in rows
+        for r in rows if r and len(r) >= 5
     ]
 
     return PaginatedTransactions(
