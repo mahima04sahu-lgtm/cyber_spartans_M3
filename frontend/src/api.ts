@@ -7,6 +7,8 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 export interface SystemStats {
   total_transactions: number;
   total_accounts: number;
+  total_fraud_accounts?: number;
+  fraud_percentage?: number;
   min_timestamp?: string;
   max_timestamp?: string;
   ingest_benchmark: { stage_name: string; duration_seconds: number }[];
