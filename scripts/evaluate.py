@@ -46,7 +46,7 @@ def run_evaluation(
     gt_df = pd.read_csv(gt_path)
     gt_df["account"] = gt_df["account"].astype(str)
     
-    con = duckdb.connect(database=db_path)
+    con = duckdb.connect(database=db_path, read_only=True)
     scores_df = con.execute("SELECT * FROM account_scores").fetchdf()
     con.close()
     
